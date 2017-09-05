@@ -1,0 +1,25 @@
+{
+    "name": "experius/module-exceptiondebugger",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Lewis Voncken",
+            "email": "lewis@experius.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Experius\\ExceptionDebugger\\": ""
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Webapi\ErrorProcessor">
+        <plugin disabled="false" name="Experius_ExceptionDebugger_Plugin_Magento_Framework_Webapi_ErrorProcessor" sortOrder="10" type="Experius\ExceptionDebugger\Plugin\Magento\Framework\Webapi\ErrorProcessor"/>
+    </type>
+</config>
