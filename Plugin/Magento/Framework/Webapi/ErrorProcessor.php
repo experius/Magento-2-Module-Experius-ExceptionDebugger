@@ -17,7 +17,7 @@ class ErrorProcessor
         if (!key_exists('raw_message', $realException) ||  strpos($realException['raw_message'], 'An error occurred on the server') !== false) {
             $this->getLogger();
             $this->logger->info('------------------------------------------------------------------------------------------');
-            $this->logger->info($realException['raw_message']);
+            $this->logger->info((key_exists('raw_message', $realException)) ? $realException['raw_message'] : $realException['message']);
             $this->logger->info('file: ' . $realException['file']);
             $this->logger->info('line: ' . $realException['line']);
             $this->logger->info('Real Exception: ');
