@@ -11,15 +11,17 @@ class ErrorProcessor
         \Magento\Framework\Webapi\ErrorProcessor $subject,
         \Exception $exception
     ) {
+        $realException = $exception;
+        $realException = (array)$realException;
 
-        if (strpos($exception->getRawMessage(), 'An error occurred on the server') !== false) {
+        if (!key_exists('raw_message', $realException) ||  strpos($realException['raw_message'], 'An error occurred on the server') !== false) {
             $this->getLogger();
             $this->logger->info('------------------------------------------------------------------------------------------');
-            $this->logger->info($exception->getRawMessage());
-            $this->logger->info('file: ' . $exception->getFile());
-            $this->logger->info('line: ' . $exception->getLine());
+            $this->logger->info($realException['raw_message']);
+            $this->logger->info('file: ' . $realException['file']);
+            $this->logger->info('line: ' . $realException['line']);
             $this->logger->info('Real Exception: ');
-            $this->logger->info($exception);
+            $this->logger->info($realException);
             $this->logger->info("------------------------------------------------------------------------------------------\n\r\n\r\n\r\n\r");
         }
 
