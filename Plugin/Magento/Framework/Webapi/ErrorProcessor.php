@@ -11,7 +11,7 @@ class ErrorProcessor
         \Magento\Framework\Webapi\ErrorProcessor $subject,
         \Exception $exception
     ) {
-        if (!method_exists($exception, 'getRawMessage') ||  strpos($exception->getRawMessage(), 'An error occurred on the server') !== false) {
+        if ((!method_exists($exception, 'getRawMessage') && !(strpos($exception->getMessage(), 'An error occurred on the server') !== false)) ||  strpos($exception->getRawMessage(), 'An error occurred on the server') !== false) {
             $this->getLogger();
             $this->logger->info('------------------------------------------------------------------------------------------');
             $this->logger->info((method_exists($exception, 'getRawMessage')) ? $exception->getRawMessage() : $exception->getMessage());
